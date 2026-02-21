@@ -63,7 +63,14 @@ export function AuthProvider({ children }) {
 
     return (
         <AuthContext.Provider value={value}>
-            {!loading && children}
+            {loading ? (
+                <div className="auth-page">
+                    <div className="text-center">
+                        <span className="spinner-custom" style={{ width: 40, height: 40 }}></span>
+                        <p className="mt-3">Dog-watching prices for you...</p>
+                    </div>
+                </div>
+            ) : children}
         </AuthContext.Provider>
     )
 }

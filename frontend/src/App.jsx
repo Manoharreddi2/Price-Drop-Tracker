@@ -8,18 +8,21 @@ import api from './api'
 function AppContent() {
     const { user, logout, getIdToken } = useAuth()
     const [products, setProducts] = useState([])
-    const [loading, setLoading] = useState(false)
+    const [apiError, setApiError] = useState(null)
 
     const fetchProducts = async () => {
         setLoading(true)
+        setApiError(null)
         try {
             const token = await getIdToken()
             const response = await api.get('/api/products', {
                 headers: { Authorization: `Bearer ${token}` }
             })
             setProducts(response.data)
+            console.log('Successfully fetched products:', response.data.length)
         } catch (error) {
             console.error('Error fetching products:', error)
+            setApiError(error.response?.data?.error || 'Failed to connect to backend. Please ensure the backend server is running.')
         } finally {
             setLoading(false)
         }
@@ -66,6 +69,11 @@ function AppContent() {
 
             {/* Main Content */}
             <div className="container">
+                {apiError && (
+                    <div className="alert-custom-error mb-4">
+                        ⚠️ <strong>Backend Connection Error:</strong> {apiError}
+                    </div>
+                )}
                 <div className="row g-4 justify-content-center">
                     <div className="col-lg-5">
                         <TrackForm onProductAdded={handleProductAdded} getIdToken={getIdToken} userEmail={user.email} />
