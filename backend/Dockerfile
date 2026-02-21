@@ -3,10 +3,11 @@ WORKDIR /app
 COPY pom.xml .
 RUN mvn dependency:go-offline -B
 COPY src ./src
-RUN mvn clean package -DskipTests
+RUN mvn clean package -DskipTests && \
+    mv target/*.jar target/app.jar
 
 FROM eclipse-temurin:17-jre
 WORKDIR /app
-COPY --from=build /app/target/price-drop-0.0.1-SNAPSHOT.jar app.jar
+COPY --from=build /app/target/app.jar app.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
