@@ -1,0 +1,22 @@
+# ─── Backend ───
+backend/target/
+backend/.mvn/wrapper/maven-wrapper.jar
+backend/*.log
+
+# Firebase Service Account Key (SECRET!)
+backend/src/main/resources/serviceAccountKey.json
+
+# ─── Frontend ───
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+frontend/.env.local
+
+# ─── IDE / OS ───
+.idea/
+*.iml
+.vscode/
+*.class
+*.jar
+.DS_Store
+Thumbs.db
