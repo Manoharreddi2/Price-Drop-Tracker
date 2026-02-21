@@ -20,11 +20,19 @@ export function AuthProvider({ children }) {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            setUser(currentUser)
+        try {
+            const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+                setUser(currentUser)
+                setLoading(false)
+            }, (error) => {
+                console.error('Auth state error:', error)
+                setLoading(false)
+            })
+            return unsubscribe
+        } catch (error) {
+            console.error('Firebase init error:', error)
             setLoading(false)
-        })
-        return unsubscribe
+        }
     }, [])
 
     const signup = (email, password) => {
