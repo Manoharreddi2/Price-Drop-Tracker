@@ -3,7 +3,7 @@ import { AuthProvider, useAuth } from './context/AuthContext'
 import Login from './components/Login'
 import TrackForm from './components/TrackForm'
 import ProductList from './components/ProductList'
-import axios from 'axios'
+import api from './api'
 
 function AppContent() {
     const { user, logout, getIdToken } = useAuth()
@@ -14,7 +14,7 @@ function AppContent() {
         setLoading(true)
         try {
             const token = await getIdToken()
-            const response = await axios.get('/api/products', {
+            const response = await api.get('/api/products', {
                 headers: { Authorization: `Bearer ${token}` }
             })
             setProducts(response.data)

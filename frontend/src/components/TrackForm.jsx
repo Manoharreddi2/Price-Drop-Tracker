@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import axios from 'axios'
+import api from '../api'
 
 function TrackForm({ onProductAdded, getIdToken, userEmail }) {
     const [formData, setFormData] = useState({
@@ -30,7 +30,7 @@ function TrackForm({ onProductAdded, getIdToken, userEmail }) {
                 email: formData.email || userEmail
             }
 
-            const response = await axios.post('/api/track-product', payload, {
+            const response = await api.post('/api/track-product', payload, {
                 headers: { Authorization: `Bearer ${token}` }
             })
 
