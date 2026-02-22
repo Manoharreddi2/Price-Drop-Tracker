@@ -35,7 +35,7 @@ public class PriceCheckScheduler {
      * Sends email alert if a product's price drops below the target price.
      * Only sends one email per product (checks notified flag).
      */
-    @Scheduled(fixedRate = 86400000) // 24 hours in milliseconds
+    @Scheduled(fixedRate = 10000) // 10 seconds in milliseconds
     public void checkPrices() {
         logger.info("🔍 Price check scheduler started at: {}", LocalDateTime.now());
 
