@@ -541,17 +541,239 @@ body::before {
     margin-bottom: 1rem;
 }
 
-/* ─── Responsive ─── */
-@media (max-width: 768px) {
+/* ─── Responsive: Tablets & Small Laptops ─── */
+@media (max-width: 992px) {
     .hero-title {
-        font-size: 2rem;
+        font-size: 2.2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+}
+
+/* ─── Responsive: Mobile ─── */
+@media (max-width: 768px) {
+
+    /* Navbar */
+    .navbar-custom {
+        padding: 0.75rem 0;
+    }
+
+    .navbar-custom .container {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .navbar-brand-custom {
+        font-size: 1.25rem;
+    }
+
+    .nav-user {
+        width: 100%;
+        justify-content: center;
+        gap: 0.75rem;
+    }
+
+    .nav-email {
+        font-size: 0.75rem;
+        max-width: 160px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .btn-logout {
+        padding: 0.35rem 0.75rem;
+        font-size: 0.8rem;
+    }
+
+    /* Hero */
+    .hero-section {
+        padding: 2.5rem 1rem 1.5rem;
+    }
+
+    .hero-title {
+        font-size: 1.8rem;
+        letter-spacing: -1px;
+    }
+
+    .hero-subtitle {
+        font-size: 0.95rem;
+        padding: 0 0.5rem;
+    }
+
+    /* Cards */
+    .glass-card {
+        padding: 1.25rem;
+        border-radius: 16px;
+    }
+
+    .card-header-custom {
+        margin-bottom: 1.25rem;
+    }
+
+    .card-header-custom h3 {
+        font-size: 1.15rem;
+    }
+
+    .card-header-custom .icon {
+        width: 38px;
+        height: 38px;
+        font-size: 1.1rem;
+    }
+
+    /* Forms */
+    .form-group-custom {
+        margin-bottom: 1.15rem;
+    }
+
+    .form-control-custom {
+        padding: 0.75rem 1rem !important;
+        font-size: 0.9rem !important;
+    }
+
+    .btn-primary-custom {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.95rem;
+    }
+
+    /* Table → Scrollable on mobile */
+    .table-container {
+        margin: 0 -1.25rem;
+        padding: 0 1.25rem;
+        border-radius: 0;
+    }
+
+    .table-custom {
+        min-width: 520px;
+    }
+
+    .table-custom thead th {
+        font-size: 0.7rem;
+        padding: 0.75rem 0.8rem;
+    }
+
+    .table-custom tbody td {
+        font-size: 0.82rem;
+        padding: 0.75rem 0.8rem;
+    }
+
+    .url-cell {
+        max-width: 150px;
+    }
+
+    /* Alerts */
+    .alert-custom-error,
+    .alert-custom-success {
+        font-size: 0.85rem;
+        padding: 0.85rem 1rem;
+    }
+
+    /* Empty State */
+    .empty-state {
+        padding: 2rem 1rem;
+    }
+
+    .empty-state .emoji-large {
+        font-size: 2.5rem;
+    }
+
+    .empty-state p {
+        font-size: 0.9rem;
+    }
+
+    /* Footer */
+    .footer-custom {
+        margin-top: 2rem;
+        padding: 1.5rem 0;
+        font-size: 0.8rem;
+    }
+
+    /* Auth Page */
+    .auth-page {
+        padding: 1.5rem;
+    }
+
+    .auth-container {
+        max-width: 100%;
+    }
+
+    .auth-logo {
+        font-size: 2.8rem;
+    }
+
+    .auth-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .auth-header p {
+        font-size: 0.85rem;
+    }
+
+    .auth-divider {
+        margin: 1.25rem 0;
+    }
+
+    .btn-google {
+        padding: 0.65rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    /* Container padding */
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    /* Row gap */
+    .row.g-4 {
+        gap: 1rem !important;
+    }
+}
+
+/* ─── Responsive: Small Phones (≤ 380px) ─── */
+@media (max-width: 380px) {
+    .hero-title {
+        font-size: 1.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.85rem;
+    }
+
+    .navbar-brand-custom {
+        font-size: 1.1rem;
     }
 
     .glass-card {
-        padding: 1.5rem;
+        padding: 1rem;
+        border-radius: 14px;
+    }
+
+    .auth-logo {
+        font-size: 2.2rem;
+    }
+
+    .auth-header h1 {
+        font-size: 1.3rem;
+    }
+
+    .form-control-custom {
+        padding: 0.65rem 0.85rem !important;
+        font-size: 0.85rem !important;
+    }
+
+    .btn-primary-custom {
+        padding: 0.7rem 1.25rem;
+        font-size: 0.9rem;
     }
 
     .nav-email {
         display: none;
+    }
+
+    .table-custom {
+        min-width: 450px;
     }
 }
