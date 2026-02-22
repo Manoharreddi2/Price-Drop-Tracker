@@ -8,6 +8,7 @@ import api from './api'
 function AppContent() {
     const { user, logout, getIdToken } = useAuth()
     const [products, setProducts] = useState([])
+    const [loading, setLoading] = useState(false)
     const [apiError, setApiError] = useState(null)
 
     const fetchProducts = async () => {
