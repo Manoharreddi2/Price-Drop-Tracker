@@ -1,4 +1,4 @@
-function ProductList({ products, loading }) {
+function ProductList({ products = [], loading }) {
     return (
         <div className="glass-card">
             <div className="card-header-custom">
