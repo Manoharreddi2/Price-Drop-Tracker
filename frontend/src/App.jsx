@@ -19,8 +19,13 @@ function AppContent() {
             const response = await api.get('/api/products', {
                 headers: { Authorization: `Bearer ${token}` }
             })
-            setProducts(response.data)
-            console.log('Successfully fetched products:', response.data.length)
+            if (Array.isArray(response.data)) {
+                setProducts(response.data)
+                console.log('Successfully fetched products:', response.data.length)
+            } else {
+                console.error('Unexpected response data:', typeof response.data)
+                setApiError('Backend returned unexpected data. Please check VITE_API_URL configuration.')
+            }
         } catch (error) {
             console.error('Error fetching products:', error)
             setApiError(error.response?.data?.error || 'Failed to connect to backend. Please ensure the backend server is running.')
